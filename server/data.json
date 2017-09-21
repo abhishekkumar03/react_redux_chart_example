@@ -1,0 +1,19 @@
+{
+  "data": [
+    {"name": "Firefox","y": 2, "process_name": "p1", "container_name":"c1", "memory_usage":"High"},
+    {"name": "Firefox","y": 1, "process_name": "p1", "container_name":"c2", "memory_usage":"Low"},
+    {"name": "Firefox","y": 3, "process_name": "p2", "container_name":"c1", "memory_usage":"High"},
+    {"name": "MSIE","y": 4, "process_name": "p1", "container_name":"c3", "memory_usage":"High"},
+    {"name": "MSIE","y": 4, "process_name": "p2", "container_name":"c1", "memory_usage":"High"},
+    {"name": "MSIE","y": 4, "process_name": "p1", "container_name":"c2", "memory_usage":"Low"},
+    {"name": "Safari","y": 4, "process_name": "p2", "container_name":"c2", "memory_usage":"High"},
+    {"name": "Safari","y": 4, "process_name": "p1", "container_name":"c5", "memory_usage":"High"},
+    {"name": "Safari","y": 4, "process_name": "p2", "container_name":"c3", "memory_usage":"Low"},
+    {"name": "Opera","y": 1, "process_name": "p3", "container_name":"c2", "memory_usage":"High"},
+    {"name": "Opera","y": 1, "process_name": "p2", "container_name":"c5", "memory_usage":"High"},
+    {"name": "Opera","y": 1, "process_name": "p5", "container_name":"c4", "memory_usage":"Low"},
+    {"name": "Chrome","y": 7, "process_name": "p3", "container_name":"c3", "memory_usage":"Low"},
+    {"name": "Chrome","y": 7, "process_name": "p2", "container_name":"c2", "memory_usage":"High"},
+    {"name": "Chrome","y": 7, "process_name": "p1", "container_name":"c1", "memory_usage":"Low"}
+  ]
+}
