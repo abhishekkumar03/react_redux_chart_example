@@ -1,33 +1,43 @@
-import React from 'react'
+import React from 'react';
 import { Table } from 'react-bootstrap';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
-const Posts = ({posts, hostFilter}) => (
+const Posts = ({posts, hostFilter, isFetching}) => (
+  <div style={{ opacity: isFetching ? 0.5 : 1 }}>
     <Table responsive>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Process Name</th>
-                <th>Container Name</th>
-                <th>Severity</th>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Process Name</th>
+          <th>Container Name</th>
+          <th>Severity</th>
+        </tr>
+      </thead>
+      <tbody>
+        {posts.filter(post =>
+          (
+            !hostFilter ||
+            (post.process_name.toLowerCase().search(hostFilter) !== -1) ||
+            (post.container_name.toLowerCase().search(hostFilter) !== -1) ||
+            (post.memory_usage.toLowerCase().search(hostFilter) !== -1)
+          )).map(post =>
+          (
+            <tr key={`row_${post.process_name}`}>
+              <td>{post.name}</td>
+              <td>{post.process_name}</td>
+              <td>{post.container_name}</td>
+              <td>{post.memory_usage}</td>
             </tr>
-        </thead>
-        <tbody>
-            {posts.filter(post => { return (!hostFilter || (post.process_name.toLowerCase().search(hostFilter) !== -1) || (post.container_name.toLowerCase().search(hostFilter) !== -1) || (post.memory_usage.toLowerCase().search(hostFilter) !== -1))}).map((post, i) =>
-                <tr key={i}>
-                    <td>{post.name}</td>
-                    <td>{post.process_name}</td>
-                    <td>{post.container_name}</td>
-                    <td>{post.memory_usage}</td>
-                </tr>
-            )}
-        </tbody>
+          ))}
+      </tbody>
     </Table>
-)
+  </div>
+);
 
 Posts.propTypes = {
-  posts: PropTypes.array.isRequired,
-  hostFilter: PropTypes.string.isRequired
-}
+  posts: PropTypes.arrayOf.isRequired,
+  hostFilter: PropTypes.string.isRequired,
+  isFetching: PropTypes.bool.isRequired,
+};
 
-export default Posts
+export default Posts;
