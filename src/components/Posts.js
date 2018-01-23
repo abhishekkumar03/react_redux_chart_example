@@ -35,7 +35,6 @@ const Posts = ({posts, hostFilter, isFetching}) => (
 );
 
 Posts.propTypes = {
-  posts: PropTypes.arrayOf.isRequired,
   hostFilter: PropTypes.string.isRequired,
   isFetching: PropTypes.bool.isRequired,
 };

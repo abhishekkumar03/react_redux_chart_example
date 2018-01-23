@@ -31,7 +31,7 @@ export const receivePosts = (hostName, json) => ({
   receivedAt: Date.now()
 });
 
-const fetchPosts = hostName => (dispatch) => {
+export const fetchPosts = hostName => (dispatch) => {
   dispatch(requestPosts(hostName));
   return fetch('http://localhost:3002/hosts', {
     method: 'POST',
