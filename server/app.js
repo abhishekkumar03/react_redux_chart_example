@@ -6,7 +6,7 @@ var qs = require('querystring');
 
 app.listen(3002);
 
-var routes = { 
+var routes = {
     get: function (route, fn) {
         this['GET:' + route] = fn;
     },
@@ -37,7 +37,7 @@ routes.post('/hosts', function (req, res) {
         });
 
         // Website you wish to allow to connect
-        res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+        res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3001');
 
         // Request methods you wish to allow
         res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -57,9 +57,9 @@ routes.post('/hosts', function (req, res) {
 function handler (req, res) {
     var purl = url.parse(req.url);
     var pathname = purl.pathname;
-    
+
     var key = req.method + ':' + pathname;
-    
+
     if (typeof routes[key] === 'function')
         routes[key](req, res);
     else {
